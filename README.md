@@ -14,6 +14,13 @@ yarn serve
 ```
 yarn build
 ```
+## Preview in WeChat Mini Program
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```bash
+yarn dev:mp-weixin
+```
+
+You can see a directory named `mp-weixin` in `dist/dev`
+
+Open it with WeChat devtools
+
