@@ -1,9 +1,62 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/index/index",
+			"path": "pages/first-page/first-page",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path": "pages/album/meow-album",
+			"style": {
+				"navigationBarTitleText": "猫猫相册"
+			}
+		},
+		{
+			"path": "pages/album/time-album",
+			"style": {
+				"navigationBarTitleText": "时间轴"
+			}
+		},
+		{
+			"path": "pages/album/location-album",
+			"style": {
+				"navigationBarTitleText": "地点相册"
+			}
+		},
+		{
+			"path": "pages/album/album-detail",
+			"style": {
+			}
+		},
+		{
+			"path": "pages/album/photo-detail",
+			"style": {
+				"navigationBarTitleText": "相片详情"
+			}
+		},
+		{
+			"path": "pages/album/album-settings",
+			"style": {
+				"navigationBarTitleText": "相册设置"
+			}
+		},
+		{
+			"path": "pages/album/album-comment",
+			"style": {
+				"navigationBarTitleText": "相册评论"
+			}
+		},
+		{
+			"path": "pages/meow-planet/meow-planet",
+			"style": {
+				"navigationBarTitleText": "喵星"
+			}
+		},
+		{
+			"path": "pages/profile/profile",
+			"style": {
+				"navigationBarTitleText": "我的"
 			}
 		}
 	],
