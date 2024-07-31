@@ -1,36 +1,24 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/first-page/first-page",
+			"path": "pages/album/my-album",
 			"style": {
-				"navigationBarTitleText": ""
-			}
-		},
-		{
-			"path": "pages/album/meow-album",
-			"style": {
-				"navigationBarTitleText": "猫猫相册"
+				"navigationBarTitleText": "我的相册"
 			}
 		},
 		{
 			"path": "pages/album/time-album",
 			"style": {
-				"navigationBarTitleText": "时间轴"
+				"navigationBarTitleText": "全部"
 			}
 		},
 		{
-			"path": "pages/album/location-album",
-			"style": {
-				"navigationBarTitleText": "地点相册"
-			}
-		},
-		{
-			"path": "pages/album/album-detail",
+			"path": "pages/album/album-details",
 			"style": {
 			}
 		},
 		{
-			"path": "pages/album/photo-detail",
+			"path": "pages/album/photo-details",
 			"style": {
 				"navigationBarTitleText": "相片详情"
 			}
@@ -42,9 +30,15 @@
 			}
 		},
 		{
-			"path": "pages/album/album-comment",
+			"path": "pages/album/album-comments",
 			"style": {
 				"navigationBarTitleText": "相册评论"
+			}
+		},
+		{
+			"path": "pages/album/team-space",
+			"style": {
+				"navigationBarTitleText": "团队空间"
 			}
 		},
 		{
