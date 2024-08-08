@@ -59,5 +59,26 @@
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#000000E5",
+		"selectedColor": "#000000E5",
+		"backgroundColor": "#fff",
+		"borderStyle": "black",
+		"height": "84px",
+		"list": [
+			{
+				"pagePath": "pages/album/my-album",
+				"text": "相册"
+			},
+			{
+				"pagePath": "pages/meow-planet/meow-planet",
+				"text": "喵星"
+			},
+			{
+				"pagePath": "pages/profile/profile",
+				"text": "我的"
+			}
+		]
 	}
 }
