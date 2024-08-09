@@ -59,8 +59,8 @@
 		"navigationStyle": "custom",
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"navigationBarBackgroundColor": "#F4F7FA",
+		"backgroundColor": "#F4F7FA"
 	},
 	"tabBar": {
 		"color": "#000000E5",
