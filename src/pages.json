@@ -1,36 +1,25 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	"pages": [
+		//pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/first-page/first-page",
+			"path": "pages/album/my-album",
 			"style": {
-				"navigationBarTitleText": ""
-			}
-		},
-		{
-			"path": "pages/album/meow-album",
-			"style": {
-				"navigationBarTitleText": "猫猫相册"
+				"navigationBarTitleText": "我的相册"
 			}
 		},
 		{
 			"path": "pages/album/time-album",
 			"style": {
-				"navigationBarTitleText": "时间轴"
+				"navigationBarTitleText": "全部"
 			}
 		},
 		{
-			"path": "pages/album/location-album",
-			"style": {
-				"navigationBarTitleText": "地点相册"
-			}
-		},
-		{
-			"path": "pages/album/album-detail",
+			"path": "pages/album/album-details",
 			"style": {
 			}
 		},
 		{
-			"path": "pages/album/photo-detail",
+			"path": "pages/album/photo-details",
 			"style": {
 				"navigationBarTitleText": "相片详情"
 			}
@@ -42,9 +31,15 @@
 			}
 		},
 		{
-			"path": "pages/album/album-comment",
+			"path": "pages/album/album-comments",
 			"style": {
 				"navigationBarTitleText": "相册评论"
+			}
+		},
+		{
+			"path": "pages/album/team-space",
+			"style": {
+				"navigationBarTitleText": "团队空间"
 			}
 		},
 		{
@@ -61,9 +56,36 @@
 		}
 	],
 	"globalStyle": {
+		"navigationStyle": "custom",
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"navigationBarBackgroundColor": "#F4F7FA",
+		"backgroundColor": "#F4F7FA"
+	},
+	"tabBar": {
+		"color": "#000000E5",
+		"selectedColor": "#000000E5",
+		"backgroundColor": "#fff",
+		"borderStyle": "black",
+		"height": "0px",
+		"list": [
+			{
+				"pagePath": "pages/album/my-album",
+				"text": "相册"
+			},
+			{
+				"pagePath": "pages/meow-planet/meow-planet",
+				"text": "喵星"
+			},
+			{
+				"pagePath": "pages/profile/profile",
+				"text": "我的"
+			},
+			{
+				"pagePath": "pages/album/team-space",
+				"text": "团队"
+			}
+
+		]
 	}
 }
