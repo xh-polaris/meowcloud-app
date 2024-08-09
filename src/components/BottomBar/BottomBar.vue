@@ -116,6 +116,7 @@ function tabChange(path: string) {
 
     .text {
       font-size: 20rpx;
+      font-weight: 300;
       line-height: 44rpx;
       color: #181818;
       margin-left: auto;
@@ -124,6 +125,7 @@ function tabChange(path: string) {
 
     .active-text {
       font-size: 20rpx;
+      font-weight: 300;
       line-height: 44rpx;
       color: #181818;
       margin-left: auto;
