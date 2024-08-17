@@ -1,4 +1,3 @@
-
 <template>
   <view class="tab-box">
     <view class="tab-list">
@@ -6,70 +5,70 @@
         v-for="item in tabList"
         :key="item.id"
         @click="tabChange(item.url)"
-        class="tab">
+        class="tab"
+      >
         <image
           :class="iconClass(item.id)"
           :src="item.id === currentTabId ? item.activeIcon : item.icon"
         />
-        <text :class="textClass(item.id)">{{item.text}}</text>
+        <text :class="textClass(item.id)">{{ item.text }}</text>
       </view>
     </view>
   </view>
 </template>
 
 <script setup lang="ts">
-import {Pages} from '@/utils/url';
-import { computed, defineProps} from "vue";
-console.log("BottomBar is loaded")//for test
+import { Pages } from '@/utils/url'
+
 const props = defineProps({
-  id : {
-    type: String
-  }
-});
-const tabList =[
+  id: {
+    type: String,
+  },
+})
+const tabList = [
   {
-    id: "album",
+    id: 'album',
     text: '相册',
     icon: '/static/images/tab-bar/album.png',
     activeIcon: '/static/images/tab-bar/album_active.png',
-    url: Pages.MyAlbum
+    url: Pages.MyAlbum,
   },
   {
-    id: "meow-planet",
+    id: 'meow-planet',
     text: '喵星',
     icon: '/static/images/tab-bar/meow_planet.png',
     activeIcon: '/static/images/tab-bar/meow_planet_active.png',
-    url: Pages.MeowPlanet
+    url: Pages.MeowPlanet,
   },
   {
-    id: "profile",
+    id: 'profile',
     text: '我的',
     icon: '/static/images/tab-bar/profile.png',
     activeIcon: '/static/images/tab-bar/profile_active.png',
-    url: Pages.Profile
-  }
-];
+    url: Pages.Profile,
+  },
+]
 const currentTabId = computed(() => props.id as string).value
 
 const iconClass = (id: string) => {
-  if(id === currentTabId){
+  if (id === currentTabId) {
     return 'active-icon'
-  }else{
+  } else {
     return 'icon'
   }
 }
 
 const textClass = (id: string) => {
-  if(id === currentTabId){
+  if (id === currentTabId) {
     return 'active-text'
-  }else{
+  } else {
     return 'text'
   }
 }
 
 function tabChange(path: string) {
   uni.switchTab({
-    url: path
+    url: path,
   })
 }
 </script>
@@ -82,10 +81,10 @@ function tabChange(path: string) {
   bottom: 0;
   width: 100%;
   background: #ffffff;
-  box-shadow: 0px -2px 16px 0px #0000000F;
+  box-shadow: 0px -2px 16px 0px #0000000f;
   height: 84px;
   z-index: 9999;
-  .tab-list{
+  .tab-list {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -102,7 +101,7 @@ function tabChange(path: string) {
       height: 56rpx;
       margin-top: 12rpx;
       margin-left: 28rpx;
-      background-color: #c4c4c4;/*temp*/
+      background-color: #c4c4c4; /*temp*/
     }
 
     .active-icon {
@@ -111,7 +110,7 @@ function tabChange(path: string) {
       height: 56rpx;
       margin-top: 12rpx;
       margin-left: 28rpx;
-      background-color: #c4c4c4;/*temp*/
+      background-color: #c4c4c4; /*temp*/
     }
 
     .text {
@@ -133,5 +132,4 @@ function tabChange(path: string) {
     }
   }
 }
-
 </style>
