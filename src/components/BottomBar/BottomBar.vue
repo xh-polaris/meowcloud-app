@@ -19,6 +19,7 @@
 
 <script setup lang="ts">
 import { Pages } from '@/utils/url'
+import { computed, defineProps } from 'vue'
 
 const props = defineProps({
   id: {

@@ -6,9 +6,9 @@ import AutoImport from 'unplugin-auto-import'
 export default defineConfig({
   plugins: [
     uni(),
-    AutoImport({
+    /*AutoImport({
       imports: ['uni', 'vue', 'vue-router', 'pinia'],
       dts: true,
-    }),
+    }),*/
   ],
 })

@@ -1,10 +1,8 @@
 <template>
   <view class="top-bar">
     <view class="left">
-      <image v-if="props.back" class="back-icon" />
       <view
         v-for="(item, index) in topBarList"
-        v-show="!props.back"
         :key="index"
         class="tab"
         @click="switchTab(item.path)"
@@ -15,21 +13,17 @@
         <view v-if="currentId === item.id" class="underline" />
       </view>
     </view>
-    <view class="ellipse" />
   </view>
 </template>
 
 <script setup lang="ts">
 import { Pages } from '@/utils/url'
+import { computed, defineProps } from 'vue'
 
 console.log('TopBar is loaded') //for test
 const props = defineProps({
   id: {
     type: String,
-  },
-  back: {
-    type: Boolean,
-    default: false,
   },
 })
 
@@ -83,6 +77,14 @@ const switchTab = (path: string) => {
   .left {
     margin-top: 108rpx;
     display: flex;
+    .back-icon {
+      position: absolute;
+      width: 7.5px;
+      height: 15px;
+      left: 3.5px;
+      top: 2.5px;
+      border: 1.5px solid #000000;
+    }
     .tab {
       flex-direction: column;
       align-content: center;
