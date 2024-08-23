@@ -1,15 +1,49 @@
 <script setup lang="ts">
-  import CatItem from '@/components/CatItem/CatItem.vue';
+import CatItem from '@/components/CatItem/CatItem.vue'
+
+const cats = [
+  {
+    id: 0,
+    name: '猫猫1',
+    avatar: undefined,
+    count: 12,
+  },
+  {
+    id: 1,
+    name: '猫猫2',
+    avatar: undefined,
+    count: 12,
+  },
+  {
+    id: 2,
+    name: '猫猫3',
+    avatar: undefined,
+    count: 12,
+  },
+  {
+    id: 3,
+    name: '猫猫4',
+    avatar: undefined,
+    count: 12,
+  },
+  {
+    id: 'allAlbums',
+    name: '全部',
+    avatar: undefined,
+    count: 48,
+  },
+  {
+    id: 'addAlbum',
+    name: '新建相册',
+    avatar: undefined,
+    count: 12,
+  },
+]
 </script>
 
 <template>
   <view class="cats-list">
-    <cat-item/>
-    <cat-item/>
-    <cat-item/>
-    <cat-item/>
-    <cat-item/>
-    <cat-item/>
+    <cat-item v-for="cat in cats" :catItem="cat" />
   </view>
 </template>
 
