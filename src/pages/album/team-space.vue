@@ -18,10 +18,4 @@ import CatsList from '@/components/CatsList/CatsList.vue'
   </view>
 </template>
 
-<style scoped>
-.team-space {
-  width: 100vw;
-  height: 100vh;
-  background-color: #f4f7fa;
-}
-</style>
+<style scoped></style>

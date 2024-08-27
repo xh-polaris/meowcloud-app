@@ -20,10 +20,22 @@ const catItem = {
 const catAvatar = catItem.id === 'addAlbum' ? undefined : catItem.avatar
 const catName = catItem.name
 const catCount = catItem.count
+
+const navigateToComments = () => {
+  if (catItem.id !== 'addAlbum') {
+    uni.navigateTo({
+      url: `/pages/album/album-comments?id=${catItem.id}`,
+    })
+  } else {
+    uni.navigateTo({
+      url: '/pages/album/album-add',
+    })
+  }
+}
 </script>
 
 <template>
-  <view class="cat-item">
+  <view class="cat-item" @click="navigateToComments">
     <image class="cat-icon" :src="catAvatar" mode="aspectFill" />
     <view class="cat-count" v-if="catItem.id !== 'addAlbum'">
       <text class="cat-count-text">
