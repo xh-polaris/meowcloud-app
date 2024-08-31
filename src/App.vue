@@ -55,4 +55,8 @@ image {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
+
+page {
+  background-color: #f4f7fa;
+}
 </style>
