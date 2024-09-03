@@ -18,7 +18,6 @@
       "@dcloudio/types",
       "@types/wechat-miniprogram",
       "@uni-helper/uni-ui-types",
-      "wot-design-uni/global.d.ts",
       "@ttou/uv-typings/shim",
       "@ttou/uv-typings/v2"
     ]

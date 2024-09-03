@@ -16,7 +16,6 @@ export default defineUniPages({
     custom: {
       '^uni-(.*)': '@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue',
       '^uv-(.*)': '@climblee/uv-ui/components/uv-$1/uv-$1.vue',
-      '^wd-(.*)': 'wot-design-uni/components/wd-$1/wd-$1.vue',
       '^(?!z-paging-refresh|z-paging-load-more)z-paging(.*)':
         'z-paging/components/z-paging$1/z-paging$1.vue',
     },
@@ -32,10 +31,16 @@ export default defineUniPages({
     spacing: '3px',
     list: [
       {
-        iconPath: 'static/tabbar/home.png',
+        iconPath: 'static/tabbar/example.png',
         selectedIconPath: 'static/tabbar/homeHL.png',
-        pagePath: 'pages/index/index',
+        pagePath: 'pages/album/my-album',
         text: '相册',
+      },
+      {
+        iconPath: 'static/tabbar/home.png',
+        selectedIconPath: 'static/tabbar/exampleHL.png',
+        pagePath: 'pages/index/index',
+        text: '喵星',
       },
       {
         iconPath: 'static/tabbar/example.png',
