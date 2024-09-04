@@ -30,7 +30,7 @@
       {
         "iconPath": "static/tabbar/example.png",
         "selectedIconPath": "static/tabbar/homeHL.png",
-        "pagePath": "pages/album/my-album",
+        "pagePath": "pages/album/index",
         "text": "相册"
       },
       {
@@ -49,7 +49,7 @@
   },
   "pages": [
     {
-      "path": "pages/album/my-album",
+      "path": "pages/album/index",
       "type": "home",
       "style": {
         "navigationStyle": "custom",
@@ -58,10 +58,6 @@
     },
     {
       "path": "pages/album/album-comments",
-      "type": "page"
-    },
-    {
-      "path": "pages/album/album-details",
       "type": "page"
     },
     {
@@ -74,10 +70,6 @@
     },
     {
       "path": "pages/album/team-space",
-      "type": "page"
-    },
-    {
-      "path": "pages/album/time-album",
       "type": "page"
     },
     {

@@ -14,6 +14,12 @@ declare module '@vue/runtime-core' {
     Carousel: (typeof import('./../components/Carousel/Carousel.vue'))['default']
     CatItem: (typeof import('./../components/CatItem/CatItem.vue'))['default']
     CatsList: (typeof import('./../components/CatsList/CatsList.vue'))['default']
+    CjxCustomNav: (typeof import('./../components/CjxCustomNav/CjxCustomNav.vue'))['default']
+    CjxImgGrid: (typeof import('./../components/CjxImgGrid/CjxImgGrid.vue'))['default']
+    CjxModal: (typeof import('./../components/CjxModal/CjxModal.vue'))['default']
+    CjxSelect: (typeof import('./../components/CjxSelect/CjxSelect.vue'))['default']
+    CjxSwipper: (typeof import('./../components/CjxSwipper/CjxSwipper.vue'))['default']
+    CjxTabs: (typeof import('./../components/CjxTabs/CjxTabs.vue'))['default']
     CommentItem: (typeof import('./../components/CommentItem/CommentItem.vue'))['default']
     DeleteAlbum: (typeof import('./../components/DeleteAlbum/DeleteAlbum.vue'))['default']
     LocationAlbum: (typeof import('./../components/LocationAlbum/LocationAlbum.vue'))['default']
@@ -24,7 +30,5 @@ declare module '@vue/runtime-core' {
     Tools: (typeof import('./../components/Tools/Tools.vue'))['default']
     TopBar: (typeof import('./../components/TopBar/TopBar.vue'))['default']
     TopReturning: (typeof import('./../components/TopReturning/TopReturning.vue'))['default']
-    UniMSwipper: (typeof import('./../components/UniMSwipper.vue'))['default']
-    UniSwipper: (typeof import('./../components/UniSwipper.vue'))['default']
   }
 }

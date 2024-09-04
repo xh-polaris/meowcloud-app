@@ -7,10 +7,9 @@
       :current="current"
       :mode="mode"
       :dots-styles="dotsStyles"
-      :style="{ height }"
       @clickItem="clickItem"
     >
-      <swiper class="swiper-box" :style="{ height }" :current="swiperDotIndex" @change="change">
+      <swiper class="swiper-box" :current="swiperDotIndex" @change="change">
         <swiper-item v-for="(item, index) in info" :key="index">
           <image
             class="image"
@@ -19,7 +18,7 @@
             :src="item.url"
           ></image>
 
-          <view :class="['swiper-item' + index, 'swiper-item']" :style="{ height }">
+          <view :class="['swiper-item' + index, 'swiper-item']">
             <text style="font-size: 32px; color: #fff">{{ index + 1 }}</text>
           </view>
         </swiper-item>
@@ -32,16 +31,15 @@
 import { PropType } from 'vue'
 
 const props = defineProps({
-  height: {
-    type: String,
-    default: '400rpx',
-  },
-
   info: {
     type: Array as PropType<any[]>,
     default: () => {
       return []
     },
+  },
+  height: {
+    type: String,
+    default: '400rpx',
   },
   // mode: 模式
   // default 条状
@@ -51,7 +49,7 @@ const props = defineProps({
   // index 索引
   mode: {
     type: String,
-    default: 'default',
+    default: 'dot',
   },
   // 指示点样式
   dotsStyles: {
@@ -77,7 +75,6 @@ const change = (e) => {
 const clickItem = (e) => {
   swiperDotIndex.value = e
 }
-console.log('swiper===', props.info)
 </script>
 
 <style lang="scss" scoped>
@@ -88,8 +85,7 @@ console.log('swiper===', props.info)
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  // height: 200px;
+  height: 200px;
   color: #fff;
 }
 
@@ -104,17 +100,8 @@ console.log('swiper===', props.info)
 .swiper-item2 {
   background-color: #cee1fd;
 }
-/* #ifndef APP-NVUE */
-::v-deep .image img {
-  -webkit-user-drag: none;
-  -khtml-user-drag: none;
-  -moz-user-drag: none;
-  -o-user-drag: none;
-  user-drag: none;
-}
-/* #endif */
 
-@media screen and (width >= 500px) {
+@media screen and (min-width: 500px) {
   .uni-swiper-dot-box {
     width: 400px;
     /* #ifndef APP-NVUE */
@@ -122,7 +109,6 @@ console.log('swiper===', props.info)
     /* #endif */
     margin-top: 8px;
   }
-
   .image {
     width: 100%;
   }

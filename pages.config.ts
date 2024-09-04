@@ -33,7 +33,7 @@ export default defineUniPages({
       {
         iconPath: 'static/tabbar/example.png',
         selectedIconPath: 'static/tabbar/homeHL.png',
-        pagePath: 'pages/album/my-album',
+        pagePath: 'pages/album/index',
         text: '相册',
       },
       {
