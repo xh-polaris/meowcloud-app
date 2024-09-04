@@ -1,5 +1,5 @@
 <!-- 使用 type="home" 属性设置相册，其他页面不需要设置，默认为page；推荐使用json5，更强大，且允许注释 -->
-<route lang="json5" type="home">
+<route lang="json5" type="page">
 {
   style: {
     navigationStyle: 'custom',
@@ -75,15 +75,6 @@ onLoad(() => {
 .swiper-item2 {
   background-color: #cee1fd;
 }
-/* #ifndef APP-NVUE */
-::v-deep .image img {
-  -webkit-user-drag: none;
-  -khtml-user-drag: none;
-  -moz-user-drag: none;
-  -o-user-drag: none;
-  user-drag: none;
-}
-/* #endif */
 
 @media screen and (width >= 500px) {
   .uni-swiper-dot-box {

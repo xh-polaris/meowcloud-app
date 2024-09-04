@@ -14,90 +14,103 @@
     "custom": {
       "^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue",
       "^uv-(.*)": "@climblee/uv-ui/components/uv-$1/uv-$1.vue",
-      "^wd-(.*)": "wot-design-uni/components/wd-$1/wd-$1.vue",
       "^(?!z-paging-refresh|z-paging-load-more)z-paging(.*)": "z-paging/components/z-paging$1/z-paging$1.vue"
     }
   },
   "tabBar": {
-    "color": "#000000E5",
-    "selectedColor": "#000000E5",
-    "backgroundColor": "#fff",
+    "color": "#999999",
+    "selectedColor": "#018d71",
+    "backgroundColor": "#F8F8F8",
     "borderStyle": "black",
-    "height": "0px",
+    "height": "50px",
+    "fontSize": "10px",
+    "iconWidth": "24px",
+    "spacing": "3px",
     "list": [
       {
+        "iconPath": "static/tabbar/example.png",
+        "selectedIconPath": "static/tabbar/homeHL.png",
         "pagePath": "pages/album/my-album",
         "text": "相册"
       },
       {
-        "pagePath": "pages/meow-planet/meow-planet",
+        "iconPath": "static/tabbar/home.png",
+        "selectedIconPath": "static/tabbar/exampleHL.png",
+        "pagePath": "pages/index/index",
         "text": "喵星"
       },
       {
-        "pagePath": "pages/profile/profile",
+        "iconPath": "static/tabbar/example.png",
+        "selectedIconPath": "static/tabbar/exampleHL.png",
+        "pagePath": "pages/mine/index",
         "text": "我的"
-      },
-      {
-        "pagePath": "pages/album/team-space",
-        "text": "团队"
       }
-
     ]
   },
   "pages": [
-    //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
     {
       "path": "pages/album/my-album",
+      "type": "home",
       "style": {
-        "navigationBarTitleText": "我的相册"
-      }
-    },
-    {
-      "path": "pages/album/time-album",
-      "style": {
-        "navigationBarTitleText": "全部"
-      }
-    },
-    {
-      "path": "pages/album/album-details",
-      "style": {
-      }
-    },
-    {
-      "path": "pages/album/photo-details",
-      "style": {
-        "navigationBarTitleText": "相片详情"
-      }
-    },
-    {
-      "path": "pages/album/album-settings",
-      "style": {
-        "navigationBarTitleText": "相册设置"
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "相册"
       }
     },
     {
       "path": "pages/album/album-comments",
-      "style": {
-        "navigationBarTitleText": "相册评论"
-      }
+      "type": "page"
+    },
+    {
+      "path": "pages/album/album-details",
+      "type": "page"
+    },
+    {
+      "path": "pages/album/album-settings",
+      "type": "page"
+    },
+    {
+      "path": "pages/album/photo-details",
+      "type": "page"
     },
     {
       "path": "pages/album/team-space",
+      "type": "page"
+    },
+    {
+      "path": "pages/album/time-album",
+      "type": "page"
+    },
+    {
+      "path": "pages/index/index",
+      "type": "page",
       "style": {
-        "navigationBarTitleText": "团队空间"
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "相册"
+      }
+    },
+    {
+      "path": "pages/index/request",
+      "type": "page",
+      "layout": "demo",
+      "style": {
+        "navigationBarTitleText": "请求"
       }
     },
     {
       "path": "pages/meow-planet/meow-planet",
+      "type": "page"
+    },
+    {
+      "path": "pages/mine/index",
+      "type": "page",
       "style": {
-        "navigationBarTitleText": "喵星"
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "我的"
       }
     },
     {
       "path": "pages/profile/profile",
-      "style": {
-        "navigationBarTitleText": "我的"
-      }
+      "type": "page"
     }
   ],
   "subPackages": [

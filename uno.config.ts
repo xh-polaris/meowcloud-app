@@ -1,33 +1,25 @@
 // uno.config.ts
 import {
   type Preset,
-  type SourceCodeTransformer,
-  presetUno,
   defineConfig,
+  presetUno,
   presetAttributify,
   presetIcons,
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss'
 
-import {
-  presetApplet,
-  presetRemRpx,
-  transformerApplet,
-  transformerAttributify,
-} from 'unocss-applet'
+import { presetApplet, presetRemRpx, transformerAttributify } from 'unocss-applet'
 
 // @see https://unocss.dev/presets/legacy-compat
-import presetLegacyCompat from '@unocss/preset-legacy-compat'
+// import { presetLegacyCompat } from '@unocss/preset-legacy-compat'
 
 const isMp = process.env?.UNI_PLATFORM?.startsWith('mp') ?? false
 
 const presets: Preset[] = []
-const transformers: SourceCodeTransformer[] = []
 if (isMp) {
   // 使用小程序预设
   presets.push(presetApplet(), presetRemRpx())
-  transformers.push(transformerApplet())
 } else {
   presets.push(
     // 非小程序用官方预设
@@ -51,20 +43,17 @@ export default defineConfig({
     // 将颜色函数 (rgb()和hsl()) 从空格分隔转换为逗号分隔，更好的兼容性app端，example：
     // `rgb(255 0 0)` -> `rgb(255, 0, 0)`
     // `rgba(255 0 0 / 0.5)` -> `rgba(255, 0, 0, 0.5)`
-    presetLegacyCompat({
-      commaStyleColorFunction: true,
-    }) as Preset,
+    // 与群友的正常写法冲突，先去掉！（2024-05-25）
+    // presetLegacyCompat({
+    //   commaStyleColorFunction: true,
+    // }) as Preset,
   ],
   /**
    * 自定义快捷语句
    * @see https://github.com/unocss/unocss#shortcuts
    */
-  shortcuts: [
-    ['center', 'flex justify-center items-center'],
-    ['text-primary', 'text-yellow'],
-  ],
+  shortcuts: [['center', 'flex justify-center items-center']],
   transformers: [
-    ...transformers,
     // 启用 @apply 功能
     transformerDirectives(),
     // 启用 () 分组功能
@@ -92,6 +81,9 @@ export default defineConfig({
 
 /**
  * 最终这一套组合下来会得到：
- * mp 里面：mt-4 => margin-top: 32rpx
- * h5 里面：mt-4 => margin-top: 1rem
+ * mp 里面：mt-4 => margin-top: 32rpx  == 16px
+ * h5 里面：mt-4 => margin-top: 1rem == 16px
+ *
+ * 如果是传统方式写样式，则推荐设计稿设置为 750，这样设计稿1px，代码写1rpx。
+ * rpx是响应式的，可以让不同设备的屏幕显示效果保持一致。
  */

@@ -1,6 +1,6 @@
 {
-  "name": "",
-  "appid": "",
+  "name": "h5routename",
+  "appid": "__UNI__E50FAD9",
   "description": "",
   "versionName": "1.0.0",
   "versionCode": "100",
@@ -52,7 +52,7 @@
   },
   "quickapp": {},
   "mp-weixin": {
-    "appid": "wx5cd5f83abe0ab38e",
+    "appid": "wx1234567890",
     "setting": {
       "urlCheck": false
     },
@@ -71,10 +71,9 @@
     "enable": false
   },
   "vueVersion": "3",
-  "locale": "zh-Hans",
   "h5": {
     "router": {
-      "base": "/"
+      "base": "/h5routename/"
     }
   }
 }
