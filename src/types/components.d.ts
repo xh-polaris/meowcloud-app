@@ -26,7 +26,7 @@ declare module '@vue/runtime-core' {
     TeamBoard: (typeof import('./../components/TeamBoard/TeamBoard.vue'))['default']
     TeamChoosing: (typeof import('./../components/TeamChoosing/TeamChoosing.vue'))['default']
     TeamTools: (typeof import('./../components/TeamTools/TeamTools.vue'))['default']
-    ToolBar: (typeof import('./../components/tool-bar/tool-bar.vue'))['default']
+    ToolBar: (typeof import('./../components/ToolBar/ToolBar.vue'))['default']
     Tools: (typeof import('./../components/Tools/Tools.vue'))['default']
     TopBar: (typeof import('./../components/TopBar/TopBar.vue'))['default']
     TopReturning: (typeof import('./../components/TopReturning/TopReturning.vue'))['default']
