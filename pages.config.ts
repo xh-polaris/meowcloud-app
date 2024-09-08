@@ -22,7 +22,7 @@ export default defineUniPages({
   },
   tabBar: {
     color: '#999999',
-    selectedColor: '#018d71',
+    selectedColor: '#0e6bf7',
     backgroundColor: '#F8F8F8',
     borderStyle: 'black',
     height: '50px',
@@ -39,7 +39,7 @@ export default defineUniPages({
       {
         iconPath: 'static/tabbar/home.png',
         selectedIconPath: 'static/tabbar/exampleHL.png',
-        pagePath: 'pages/index/index',
+        pagePath: 'pages/meow-planet/index',
         text: '喵星',
       },
       {

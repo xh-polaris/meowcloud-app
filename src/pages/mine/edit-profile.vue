@@ -15,11 +15,15 @@ const handleAccountDelete = () => {
   // 注销账号逻辑
 }
 </script>
-
+<!-- 使用 type="home" 属性设置相册，其他页面不需要设置，默认为page；推荐使用json5，更强大，且允许注释 -->
+<route lang="json5" type="home">
+{
+  style: {
+    navigationBarTitleText: '我的',
+  },
+}
+</route>
 <template>
-  <route lang="json5" type="page">
-    { style: { navigationStyle: 'custom', navigationBarTitleText: '', }, }
-  </route>
   <default></default>
 </template>
 

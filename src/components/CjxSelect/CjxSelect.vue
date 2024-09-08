@@ -1,5 +1,5 @@
 <template>
-  <view class="cjx-select-box rounded-2 bg-#fff overflow-hidden">
+  <view class="cjx-select fixed w-92vw cjx-select-box rounded-5 bg-#fff overflow-hidden z-10">
     <view class="cjx-select-show flex justify-between items-center h-10 px-2" @click="showOptions">
       <uni-icons type="staff" color="#2196f3" size="24" />
       <view class="flex-1 text-3.5 text-gray-500 ml-2 single-line-ellipsis max-w-100">
