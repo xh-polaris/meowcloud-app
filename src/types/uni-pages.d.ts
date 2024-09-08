@@ -11,9 +11,8 @@ interface NavigateToOptions {
        "/pages/album/team-space" |
        "/pages/index/index" |
        "/pages/index/request" |
-       "/pages/meow-planet/meow-planet" |
+       "/pages/mine/edit-profile" |
        "/pages/mine/index" |
-       "/pages/profile/profile" |
        "/pages-sub/demo/index";
 }
 interface RedirectToOptions extends NavigateToOptions {}

@@ -3,7 +3,7 @@
 {
   style: {
     navigationStyle: 'custom',
-    navigationBarTitleText: '相册',
+    navigationBarTitleText: '我的相册',
   },
 }
 </route>
@@ -19,7 +19,7 @@
 <script setup lang="ts">
 import CjxCustomNav from '@/components/CjxCustomNav/CjxCustomNav.vue'
 import Carousel from '@/components/Carousel/Carousel.vue'
-import ToolBar from '@/components/tool-bar/tool-bar.vue'
+import ToolBar from '@/components/ToolBar/ToolBar.vue'
 import CatsList from '@/components/CatsList/CatsList.vue'
 
 const albumChange = (key) => {

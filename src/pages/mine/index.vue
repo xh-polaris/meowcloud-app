@@ -11,6 +11,7 @@
   <view
     class="bg-white overflow-hidden pt-2 px-4 bg-red-300"
     :style="{ marginTop: safeAreaInsets.top + 'px' }"
+    @click="jump2Edit()"
   >
     我的
   </view>
@@ -26,6 +27,10 @@ const description = ref()
 onLoad(() => {
   console.log(author)
 })
+// 测试跳转到个人信息编辑页
+const jump2Edit = () => {
+  uni.navigateTo({ url: '/pages/mine/edit-profile' })
+}
 </script>
 
 <style>

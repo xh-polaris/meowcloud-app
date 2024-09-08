@@ -1,70 +1,69 @@
+<template>
+  <view :style="{ marginTop: safeAreaInsets?.top + 'px' }">
+    <uni-nav-bar fixed leftWidth="100%" :border="false" :backgroundColor="backgroundColorChange">
+      <template #left>
+        <image class="back" src="@/static/images/back.png" @click="navigateBack" />
+        <view v-if="photoDetails === false" class="album-name">
+          {{ albumName + '的相册' }}
+        </view>
+        <view v-else class="photo-number">
+          {{ currentNumber + '/' + totalNumber }}
+        </view>
+      </template>
+    </uni-nav-bar>
+  </view>
+</template>
+
 <script setup lang="ts">
 import { ref } from 'vue'
-import { defineProps } from 'vue'
+
+const { safeAreaInsets } = uni.getSystemInfoSync()
 
 const props = defineProps({
   albumName: String,
   photoDetails: Boolean,
+  darkMode: Boolean,
 })
 
+const darkMode = props.darkMode
 const albumName = props.albumName || '猫猫'
 const currentNumber = 1
 const totalNumber = 99
 const photoDetails = ref(props.photoDetails)
+
+const backgroundColorChange = () => {
+  if (darkMode) return `#000`
+  else return `#f4f7fa`
+}
 
 const navigateBack = () => {
   uni.navigateBack()
 }
 </script>
 
-<template>
-  <view class="top-returning" @click="navigateBack">
-    <image class="back" src="@/static/images/back.png" />
-    <view v-if="photoDetails === false" class="album-name">
-      {{ albumName + '的相册' }}
-    </view>
-    <view v-else class="photo-number">
-      {{ currentNumber + '/' + totalNumber }}
-    </view>
-  </view>
-</template>
-
 <style scoped lang="scss">
-.top-returning {
-  position: fixed;
-  background-color: #f4f7fa;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 176rpx;
-  z-index: 999;
-  .back {
-    position: fixed;
-    width: 40rpx;
-    height: 40rpx;
-    margin-top: 117rpx;
-    margin-left: 35rpx;
-  }
-  .album-name {
-    position: fixed;
-    height: 44rpx;
-    margin-top: 110rpx;
-    margin-left: 80rpx;
-    font-weight: 600;
-    font-size: 40rpx;
-    line-height: 44rpx;
-    text-align: center;
-    color: #1a1a1a;
-  }
-  .photo-number {
-    position: fixed;
-    left: 292rpx;
-    top: 116rpx;
-    height: 44rpx;
-    font-size: 40rpx;
-    line-height: 44rpx;
-    text-align: center;
-    color: #1a1a1a;
-  }
+.back {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.album-name {
+  height: 44rpx;
+  margin-left: 12rpx;
+  font-size: 40rpx;
+  font-weight: 600;
+  line-height: 44rpx;
+  color: #1a1a1a;
+  text-align: center;
+}
+
+.photo-number {
+  height: 44rpx;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 40rpx;
+  line-height: 44rpx;
+  color: #1a1a1a;
+  text-align: center;
 }
 </style>

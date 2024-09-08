@@ -9,11 +9,7 @@ const catBreed = '橘猫'
     <view class="cat-info">
       <view class="first-line">
         <text class="cat-name">{{ catName }}</text>
-        <image
-          class="cat-gender"
-          src="@/static/images/male.png"
-          mode="aspectFill"
-        />
+        <image class="cat-gender" src="@/static/images/male.png" mode="aspectFill" />
       </view>
       <text class="cat-breed">{{ '品种：' + catBreed }}</text>
     </view>
@@ -25,17 +21,19 @@ const catBreed = '橘猫'
   display: flex;
   width: 722rpx;
   height: 168rpx;
-  margin-top: 194rpx;
+  margin-top: 18rpx;
   margin-left: 14rpx;
-  border-radius: 24rpx;
   background-color: #ffffff;
+  border-radius: 24rpx;
+
   .avatar {
     width: 128rpx;
     height: 128rpx;
-    margin-left: 20rpx;
     margin-top: 20rpx;
+    margin-left: 20rpx;
     border-radius: 16rpx;
   }
+
   .cat-info {
     display: flex;
     flex-direction: column;
@@ -43,9 +41,11 @@ const catBreed = '橘猫'
     height: 88rpx;
     margin-top: 40rpx;
     margin-left: 32rpx;
+
     .first-line {
       display: flex;
       align-items: center;
+
       .cat-name {
         height: 44rpx;
         margin-bottom: auto;
@@ -54,6 +54,7 @@ const catBreed = '橘猫'
         color: #000000;
         text-align: center;
       }
+
       .cat-gender {
         width: 40rpx;
         height: 40rpx;
@@ -61,6 +62,7 @@ const catBreed = '橘猫'
         margin-left: 10rpx;
       }
     }
+
     .cat-breed {
       height: 44rpx;
       margin-top: 0;

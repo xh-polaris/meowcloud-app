@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import { defineProps } from 'vue'
-
 interface catItem {
   id: string
   name: string
   avatar: string
   count: number
 }
+
 const props = defineProps<{
   catItem?: catItem
 }>()
 
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 const catItem = {
   id: props.catItem?.id ?? '0',
   name: props.catItem?.name ?? '猫猫',
@@ -28,7 +28,7 @@ const navigateToComments = () => {
     })
   } else {
     uni.navigateTo({
-      url: '/pages/album/album-add',
+      url: '/pages/album/photo-details',
     })
   }
 }
@@ -51,45 +51,49 @@ const navigateToComments = () => {
 <style scoped lang="scss">
 .cat-item {
   display: grid;
-  justify-content: center;
+  gap: 20rpx;
   align-items: center;
+  justify-content: center;
   width: 144rpx;
   height: 208rpx;
-  gap: 20rpx;
+
   .cat-icon {
     width: 144rpx;
     height: 144rpx;
-    border-radius: 72rpx;
     background-color: #c4c4c4;
+    border-radius: 72rpx;
   }
+
   .cat-count {
-    display: flex;
     position: relative;
     top: -46rpx;
     left: 90rpx;
-    width: 54rpx;
-    height: 28rpx;
-    border-radius: 16rpx;
-    border: 2rpx solid #fff;
-    background-color: #0094ff;
+    display: flex;
     align-items: center;
     justify-content: center;
+    width: 54rpx;
+    height: 28rpx;
+    background-color: #0094ff;
+    border: 2rpx solid #fff;
+    border-radius: 16rpx;
+
     .cat-count-text {
-      text-align: center;
       width: 22rpx;
       height: 44rpx;
-      font-weight: 500;
       font-size: 18rpx;
+      font-weight: 500;
       line-height: 44rpx;
       color: #fff;
+      text-align: center;
     }
   }
+
   .cat-name {
-    margin-top: -46rpx;
     width: 144rpx;
     height: 44rpx;
-    font-weight: 400;
+    margin-top: -46rpx;
     font-size: 28rpx;
+    font-weight: 400;
     line-height: 44rpx;
     color: #000;
     text-align: center;
