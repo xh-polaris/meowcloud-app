@@ -1,15 +1,21 @@
 <template>
-  <view class="default-layout">
+  <view class="default-layout" style="height: maxHeight">
     <slot />
   </view>
 </template>
 
+<script lang="ts" setup>
+const { safeAreaInsets } = uni.getSystemInfoSync()
+const maxHeight = `calc(100vh - ${safeAreaInsets.top}px))`
+console.log('maxHeight', maxHeight)
+const bg = 'red'
+</script>
 <style lang="scss">
 .default-layout {
-  height: 100vh;
+  height: calc(100vh - 47px);
   /* #ifdef H5 */
-  padding-bottom: 50px;
   overflow: auto;
   /* #endif */
+  background: rgba(229, 231, 235, 0.1);
 }
 </style>

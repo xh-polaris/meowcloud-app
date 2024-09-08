@@ -1,19 +1,13 @@
 <template>
-  <view class="mb-2">
+  <view class="my-2 pt-1.5 bg-white rounded-2">
     <view class="relative">
       <image
         :src="info.url"
-        :class="['block w-18 h-18 mx-auto bg-gray-200', radiusClass]"
+        :class="['block w-8 h-8 mx-auto bg-gray-200', radiusClass]"
         :mode="mode"
       />
-      <view
-        v-if="info.badge > -1"
-        class="text-center text-3 bg-blue-500 absolute right-5 bottom-0 h-4 leading-4 px-2 text-#fff rounded-2"
-      >
-        {{ info.badge }}
-      </view>
     </view>
-    <view class="text-center my-3 text-3.5">{{ info.content }}</view>
+    <view class="text-center py-1.5 text-2.5">{{ info.content }}</view>
   </view>
 </template>
 
@@ -22,7 +16,7 @@ const props = defineProps({
   // 图片圆角
   radiusClass: {
     type: String,
-    default: 'rounded-2',
+    default: 'rounded-1/2',
   },
   mode: {
     type: String,

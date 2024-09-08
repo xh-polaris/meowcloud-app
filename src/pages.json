@@ -19,7 +19,7 @@
   },
   "tabBar": {
     "color": "#999999",
-    "selectedColor": "#018d71",
+    "selectedColor": "#0e6bf7",
     "backgroundColor": "#F8F8F8",
     "borderStyle": "black",
     "height": "50px",
@@ -36,7 +36,7 @@
       {
         "iconPath": "static/tabbar/home.png",
         "selectedIconPath": "static/tabbar/exampleHL.png",
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/meow-planet/index",
         "text": "喵星"
       },
       {
@@ -89,8 +89,18 @@
       }
     },
     {
-      "path": "pages/meow-planet/meow-planet",
-      "type": "page"
+      "path": "pages/login/index",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": ""
+      }
+    },
+    {
+      "path": "pages/meow-planet/index",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "喵星"
+      }
     },
     {
       "path": "pages/mine/index",

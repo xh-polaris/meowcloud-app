@@ -9,11 +9,16 @@
 </route>
 
 <template>
-  <view class="my-album">
+  <view class="my-album bg-gray-200">
     <cjx-custom-nav @change="albumChange"></cjx-custom-nav>
-    <carousel />
-    <tool-bar />
-    <cats-list />
+    <!-- 我的相册 -->
+    <view v-show="albumType === 0">
+      <carousel />
+      <tool-bar />
+      <cats-list />
+    </view>
+    <!-- 团队相册 -->
+    <team-album v-show="albumType === 1"></team-album>
   </view>
 </template>
 <script setup lang="ts">
@@ -21,9 +26,15 @@ import CjxCustomNav from '@/components/CjxCustomNav/CjxCustomNav.vue'
 import Carousel from '@/components/Carousel/Carousel.vue'
 import ToolBar from '@/components/tool-bar/tool-bar.vue'
 import CatsList from '@/components/CatsList/CatsList.vue'
+import TeamAlbum from './components/team-album.vue'
+
+const albumType = ref(0)
 
 const albumChange = (key) => {
+  albumType.value = key
   console.log('当前相册', key)
 }
+
+uni.navigateTo({ url: '/pages/login/index' })
 </script>
-<style scoped></style>
+<style lang="scss" scoped></style>

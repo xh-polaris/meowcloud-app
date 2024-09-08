@@ -11,7 +11,8 @@ interface NavigateToOptions {
        "/pages/album/team-space" |
        "/pages/index/index" |
        "/pages/index/request" |
-       "/pages/meow-planet/meow-planet" |
+       "/pages/login/index" |
+       "/pages/meow-planet/index" |
        "/pages/mine/index" |
        "/pages/profile/profile" |
        "/pages-sub/demo/index";
@@ -19,7 +20,7 @@ interface NavigateToOptions {
 interface RedirectToOptions extends NavigateToOptions {}
 
 interface SwitchTabOptions {
-  url: "/pages/album/index" | "/pages/index/index" | "/pages/mine/index"
+  url: "/pages/album/index" | "/pages/meow-planet/index" | "/pages/mine/index"
 }
 
 type ReLaunchOptions = NavigateToOptions | SwitchTabOptions;

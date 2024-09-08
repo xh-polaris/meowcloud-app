@@ -4,14 +4,14 @@
       v-for="(item, inx) in list"
       :class="[
         'mr-3',
-        currentKey === inx ? 'text-5 text-blue-500 font-600' : 'text-4 text-black-300',
+        currentKey === inx ? 'text-5 text-#1FA1FF font-600' : 'text-4 text-black-300',
       ]"
       :key="item"
       @click="tabChange(inx)"
     >
       <view>{{ item }}</view>
       <view
-        :class="['w-4 h-2px  rounded-2 mx-auto mt-1.5', currentKey === inx ? 'bg-blue-500' : '']"
+        :class="['w-4 h-2px  rounded-2 mx-auto mt-1.5', currentKey === inx ? 'bg-#1FA1FF' : '']"
       ></view>
     </view>
   </view>
