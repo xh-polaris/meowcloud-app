@@ -1,6 +1,6 @@
 <template>
-  <view class="default-layout" style="height: maxHeight">
-    <slot />
+  <view class="default-layout">
+    <slot></slot>
   </view>
 </template>
 
