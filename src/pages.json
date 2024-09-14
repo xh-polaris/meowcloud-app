@@ -57,18 +57,11 @@
       }
     },
     {
-      "path": "pages/mine/edit-profile",
-      "type": "home",
-      "style": {
-        "navigationBarTitleText": "我的"
-      }
-    },
-    {
       "path": "pages/album/album-comments",
       "type": "page"
     },
     {
-      "path": "pages/album/album-settings",
+      "path": "pages/album/edit-album",
       "type": "page"
     },
     {
@@ -108,6 +101,10 @@
       "style": {
         "navigationBarTitleText": "喵星"
       }
+    },
+    {
+      "path": "pages/mine/edit-profile",
+      "type": "page"
     },
     {
       "path": "pages/mine/index",

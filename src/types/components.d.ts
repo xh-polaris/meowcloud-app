@@ -26,6 +26,7 @@ declare module '@vue/runtime-core' {
     CjxTabs: (typeof import('./../components/CjxTabs/CjxTabs.vue'))['default']
     CommentItem: (typeof import('./../components/CommentItem/CommentItem.vue'))['default']
     DeleteAlbum: (typeof import('./../components/DeleteAlbum/DeleteAlbum.vue'))['default']
+    EditItem: (typeof import('./../components/EditItem/EditItem.vue'))['default']
     LikesAndCommentsCount: (typeof import('./../components/LikesAndCommentsCount/LikesAndCommentsCount.vue'))['default']
     LocationAlbum: (typeof import('./../components/LocationAlbum/LocationAlbum.vue'))['default']
     PhotoDescriptions: (typeof import('./../components/PhotoDescriptions/PhotoDescriptions.vue'))['default']
