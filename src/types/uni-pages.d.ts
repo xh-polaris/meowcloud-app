@@ -6,12 +6,14 @@
 interface NavigateToOptions {
   url: "/pages/mine/edit-profile" |
        "/pages/album/index" |
+       "/pages/about/index" |
        "/pages/album/album-comments" |
        "/pages/album/album-settings" |
        "/pages/album/photo-details" |
        "/pages/album/team-space" |
        "/pages/index/index" |
        "/pages/index/request" |
+       "/pages/linkus/index" |
        "/pages/login/index" |
        "/pages/meow-planet/index" |
        "/pages/mine/index" |

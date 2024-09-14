@@ -35,6 +35,6 @@ const albumChange = (key) => {
   console.log('当前相册', key)
 }
 
-uni.navigateTo({ url: '/pages/login/index' })
+// uni.navigateTo({ url: '/pages/login/index' })
 </script>
 <style lang="scss" scoped></style>

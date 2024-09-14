@@ -31,20 +31,20 @@ export default defineUniPages({
     spacing: '3px',
     list: [
       {
-        iconPath: 'static/tabbar/example.png',
-        selectedIconPath: 'static/tabbar/homeHL.png',
+        iconPath: 'static/tabbar/album.png',
+        selectedIconPath: 'static/tabbar/album-active.png',
         pagePath: 'pages/album/index',
         text: '相册',
       },
       {
-        iconPath: 'static/tabbar/home.png',
-        selectedIconPath: 'static/tabbar/exampleHL.png',
+        iconPath: 'static/tabbar/planet.png',
+        selectedIconPath: 'static/tabbar/planet-active.png',
         pagePath: 'pages/meow-planet/index',
         text: '喵星',
       },
       {
-        iconPath: 'static/tabbar/example.png',
-        selectedIconPath: 'static/tabbar/exampleHL.png',
+        iconPath: 'static/tabbar/mine.png',
+        selectedIconPath: 'static/tabbar/mine-active.png',
         pagePath: 'pages/mine/index',
         text: '我的',
       },

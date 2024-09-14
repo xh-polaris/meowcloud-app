@@ -80,6 +80,14 @@ export default {
       type: String,
       default: '#5677fc',
     },
+    canvasId: {
+      type: String,
+      default: 'canvasId',
+    },
+    bgCanvasId: {
+      type: String,
+      default: 'bgCanvasId',
+    },
   },
   watch: {
     percent(val) {
@@ -91,8 +99,8 @@ export default {
   },
   data() {
     return {
-      canvasId: 'canvasId',
-      bgCanvasId: 'bgCanvasId',
+      // canvasId: 'canvasId',
+      // bgCanvasId: 'bgCanvasId',
       startPercent: 0,
       progressContext: null,
       linearGradient: null,
