@@ -1,6 +1,6 @@
 <template>
   <view class="default-layout">
-    <slot />
+    <slot></slot>
   </view>
 </template>
 
