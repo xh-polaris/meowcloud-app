@@ -1,5 +1,4 @@
 <template>
-  <top-returning :albumName="'小黑'" :photoDetails="false" />
   <album-comments-info />
   <view class="comments-zone">
     <view class="comments-zone-title">
@@ -29,9 +28,15 @@
 <script setup lang="ts">
 import CommentItem from '@/components/CommentItem/CommentItem.vue'
 import AlbumCommentsInfo from '@/components/AlbumCommentsInfo/AlbumCommentsInfo.vue'
-import { ref } from 'vue'
 
+const catName = '小黑'
 const sortOrder = ref('newest')
+
+onLoad(() => {
+  uni.setNavigationBarTitle({
+    title: `${catName}的相册`,
+  })
+})
 // sort-order change
 const changeSortOrder = () => {
   if (sortOrder.value === 'newest') {

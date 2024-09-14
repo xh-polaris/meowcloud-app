@@ -49,18 +49,18 @@
   },
   "pages": [
     {
-      "path": "pages/mine/edit-profile",
-      "type": "home",
-      "style": {
-        "navigationBarTitleText": "我的"
-      }
-    },
-    {
       "path": "pages/album/index",
       "type": "home",
       "style": {
         "navigationStyle": "custom",
         "navigationBarTitleText": "我的相册"
+      }
+    },
+    {
+      "path": "pages/mine/edit-profile",
+      "type": "home",
+      "style": {
+        "navigationBarTitleText": "我的"
       }
     },
     {
