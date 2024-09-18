@@ -130,14 +130,18 @@
       <uni-list>
         <uni-list-item showArrow link="navigateTo" to="/pages/about/index">
           <template #header>
-            <image :src="markImg" mode="aspectFill" class="w-6 h-6" />
-            <view class="mt-0.75 text-3.5 ml-1 text-[#414141]">关于我们</view>
+            <view class="flex items-center">
+              <image :src="markImg" mode="aspectFill" class="w-6 h-6 mt-2px" />
+              <view class="mt-0.75 text-3.5 ml-1 text-[#414141]">关于我们</view>
+            </view>
           </template>
         </uni-list-item>
         <uni-list-item showArrow link="navigateTo" to="/pages/linkus/index">
           <template #header>
-            <uni-icons type="chat-filled" color="#414141" size="24" />
-            <view class="mt-0.75 text-3.5 ml-1 text-[#414141]">联系与反馈</view>
+            <view class="flex items-center">
+              <uni-icons type="chat-filled" color="#414141" size="24" />
+              <view class="mt-0.75 text-3.5 ml-1 text-[#414141]">联系与反馈</view>
+            </view>
           </template>
         </uni-list-item>
       </uni-list>
@@ -177,8 +181,8 @@ const jump2Edit = () => {
   background-image: linear-gradient(to right, #44aaf4, #0e6bf7);
 }
 .img-main {
-  width: 110rpx;
-  height: 110rpx;
+  width: 116rpx;
+  height: 116rpx;
   margin-right: 30rpx;
   margin-bottom: 10rpx;
   border-radius: 8rpx;
