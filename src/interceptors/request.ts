@@ -39,6 +39,10 @@ const httpInterceptor = {
     const { token } = userStore.userInfo as unknown as IUserInfo
     if (token) {
       options.header.Authorization = `Bearer ${token}`
+
+      // 测试数据
+      options.header.Authorization = `shadow ${token}`
+      options.header['X-Xh-Env'] = `test`
     }
   },
 }
