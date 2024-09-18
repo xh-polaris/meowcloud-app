@@ -41,9 +41,13 @@ const httpInterceptor = {
       options.header.Authorization = `Bearer ${token}`
 
       // 测试数据
-      options.header.Authorization = `shadow ${token}`
+      options.header.Authorization = `Bearer shadow`
       options.header['X-Xh-Env'] = `test`
     }
+
+    // 测试数据
+    options.header.Authorization = `Bearer shadow`
+    options.header['X-Xh-Env'] = `test`
   },
 }
 

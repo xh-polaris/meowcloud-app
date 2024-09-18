@@ -3,21 +3,21 @@
     <view class="cjx-select-show flex justify-between items-center h-10 px-2" @click="showOptions">
       <uni-icons type="staff" color="#2196f3" size="24" />
       <view class="flex-1 text-3.5 text-gray-500 ml-2 single-line-ellipsis max-w-100">
-        {{ selectText }}
+        {{ text || selectText }}
       </view>
       <view :class="[`triangle triangle-${selectStatus}`]"></view>
     </view>
     <view v-show="selectStatus === 'up'" class="px-2">
-      <view v-for="item in range" :key="item.value" @click="optionClick(item)">
+      <view v-for="item in range" :key="item.id" @click="optionClick(item)">
         <view
           :class="[
             'cjx-select-option flex justify-between items-center h-10 mx--2 px-2',
-            selectValue === item.value ? 'bg-gray-200' : '',
+            selectValue === item.id ? 'bg-gray-200' : '',
           ]"
         >
           <uni-icons type="staff" color="#2196f3" size="24" />
           <view class="flex-1 text-3.5 text-gray-500 ml-2 single-line-ellipsis max-w-100">
-            {{ item.text }}
+            {{ item.name }}
           </view>
         </view>
       </view>
@@ -27,8 +27,8 @@
 
 <script lang="ts" setup>
 interface Range {
-  value: string
-  text: string
+  name: string
+  id: string
   disabled?: boolean
 }
 const props = defineProps({
@@ -42,6 +42,10 @@ const props = defineProps({
     type: String,
     default: '默认值',
   },
+  text: {
+    type: String,
+    default: '',
+  },
 })
 
 const emits = defineEmits(['change'])
@@ -54,9 +58,9 @@ const showOptions = () => {
   selectStatus.value = selectStatus.value === 'down' ? 'up' : 'down'
 }
 const optionClick = (item: Range) => {
-  selectValue.value = item.value
-  selectText.value = item.text
-  emits('change', { value: item.value, opt: item })
+  selectValue.value = item.id
+  selectText.value = item.name
+  emits('change', { value: item.id, opt: item })
   showOptions()
 }
 </script>

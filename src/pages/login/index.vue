@@ -8,7 +8,9 @@
     <image :src="loginHead" class="head" mode="aspectFill" />
     <image :src="loginTxt" class="txt" />
 
-    <view class="login-btn w-50 h-10 leading-10 rounded-1.5 text-white text-4">立即登录</view>
+    <view class="login-btn w-50 h-10 leading-10 rounded-1.5 text-white text-4" @click="wxLogin">
+      立即登录
+    </view>
 
     <!-- 协议 -->
     <view class="protocol w-50 mx-auto mt-2.5">
@@ -42,13 +44,12 @@
 import CjxAddressMarks from './components/cjx-address-marks.vue'
 import loginHead from '@/static/images/login-login.jpg'
 import loginTxt from '@/static/images/login-txt.jpg'
+import { getLogin } from '@/service/user/user'
 
-const tabName = ref('all')
-const isAgree = ref(false)
+const WX_APPID = import.meta.env.VITE_WX_APPID
 
-const tabChange = (name) => {
-  tabName.value = name
-}
+// const isAgree = ref(false)
+const isAgree = ref(true)
 
 const checkboxChange = () => {
   isAgree.value = !isAgree.value
@@ -56,14 +57,42 @@ const checkboxChange = () => {
 const goPage = (url) => {
   uni.navigateTo({ url })
 }
-const goLogin = async () => {
-  uni.showLoading({
-    title: '登录中...',
+const goLogin = async (code) => {
+  const res = await getLogin({
+    verifyCode: code,
+    authType: 'wechat',
+    authId: WX_APPID,
   })
+  // uni.hideLoading()
+  // uni.reLaunch({
+  //   url: '/pages/album/index',
+  // })
+}
+const wxLogin = () => {
+  if (!isAgree.value) {
+    uni.showModal({
+      title: '温馨提示',
+      content: '请先同意用户协议和隐私政策！',
+      success: function (res) {
+        if (res.confirm) isAgree.value = !isAgree.value
+      },
+    })
+    return
+  }
+  console.log('准备获取code')
 
-  uni.hideLoading()
-  uni.reLaunch({
-    url: '/pages/album/index',
+  // uni.showLoading({
+  //   title: '登录中...',
+  // })
+  uni.login({
+    provider: 'weixin',
+    success: function (loginRes) {
+      console.log('微信', loginRes)
+      goLogin(loginRes.code)
+    },
+    fail: function () {
+      uni.hideLoading()
+    },
   })
 }
 </script>
@@ -81,8 +110,8 @@ const goLogin = async () => {
   margin: 10rpx auto 30rpx;
 }
 .login-btn {
-  text-align: center;
   margin: 0 auto;
+  text-align: center;
   background-image: linear-gradient(to right, #44aaf4, #0e6bf7);
 }
 // 协议样式
@@ -99,8 +128,8 @@ const goLogin = async () => {
 }
 .check-text {
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
+  align-items: center;
   font-size: 16rpx;
   color: #7f7f7f;
 }

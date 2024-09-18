@@ -35,6 +35,8 @@ const albumChange = (key) => {
   console.log('当前相册', key)
 }
 
-// uni.navigateTo({ url: '/pages/login/index' })
+// if (!uni.getStorageSync('token')) {
+//   uni.redirectTo({ url: '/pages/login/index' })
+// }
 </script>
 <style lang="scss" scoped></style>
