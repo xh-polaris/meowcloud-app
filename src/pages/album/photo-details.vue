@@ -1,41 +1,54 @@
 <template>
-  <default :class="changeDarkMode" @click="changeDarkMode">
-    <view @click="changeDarkMode" class="flex">
-      <top-returning :photo-details="true" :darkMode="darkMode" />
-      <image class="w-100% h-1126rpx fixed bottom-298rpx" :src="photoPath" mode="aspectFill" />
-      <barrage-comments v-show="!darkMode" :comments="commentsList" />
-      <photo-descriptions
-        v-show="!darkMode"
-        :photo-descriptions="'我是对于图片的描述我是对于图片的描述我是对于图片的描述我是对于图片的描述'"
-      />
-      <likes-and-comments-count v-show="!darkMode" :likes-count="100" :comments-count="100" />
-    </view>
-  </default>
+  <view class="pageContainer" :class="darkModeClass"></view>
+  <view @click="toggleDarkMode" class="flex">
+    <image class="w-100% h-1126rpx fixed bottom-298rpx" :src="photoPath" mode="aspectFill" />
+    <barrage-comments v-show="!isDarkMode" :comments="commentsList" />
+    <photo-descriptions
+      v-show="!isDarkMode"
+      :photo-descriptions="'我是对于图片的描述我是对于图片的描述我是对于图片的描述我是对于图片的描述'"
+    />
+    <likes-and-comments-count v-show="!isDarkMode" :likes-count="100" :comments-count="100" />
+  </view>
 </template>
 
 <script setup lang="ts">
-import TopReturning from '@/components/TopReturning/TopReturning.vue'
 import PhotoDescriptions from '@/components/PhotoDescriptions/PhotoDescriptions.vue'
 import LikesAndCommentsCount from '@/components/LikesAndCommentsCount/LikesAndCommentsCount.vue'
-import BarrageComments from '@/components/BarrrageComments/BarrageComments.vue'
-import { ref } from 'vue'
-import Default from '@/layouts/default.vue'
+import BarrageComments from '@/components/BarrageComments/BarrageComments.vue'
 
 const photoPath = ref('/static/images/catBody.png')
 const commentsList = ['我是弹幕评论', '我是弹幕评论', '我是弹幕评论']
 
 // darkMode
-const darkMode = ref(false)
+const isDarkMode = ref(false)
 
-const changeDarkMode = () => {
-  darkMode.value = !darkMode.value
-  console.log(darkMode)
-  return 'dark'
+// 设置导航栏文字
+const currentNum = 1
+const TotalNum = 99
+onLoad(() => {
+  uni.setNavigationBarTitle({ title: `${currentNum} / ${TotalNum}` })
+})
+
+const toggleDarkMode = () => {
+  isDarkMode.value = !isDarkMode.value
+  console.log(`isDarkMode is ${isDarkMode.value}`)
+  uni.setNavigationBarColor({
+    frontColor: isDarkMode.value ? '#ffffff' : '#000000',
+    backgroundColor: isDarkMode.value ? '#000000' : '#F4F7FA',
+  })
+  uni.setBackgroundColor({
+    backgroundColor: isDarkMode.value ? '#000000' : '#F4F7FA',
+  })
 }
+
+const darkModeClass = computed(() => (isDarkMode.value ? 'darkMode' : ''))
 </script>
 
-<style scoped>
-.dark {
-  background-color: #000;
+<style>
+.pageContainer {
+  min-height: 100vh;
+}
+.darkMode {
+  background-color: #000000;
 }
 </style>
