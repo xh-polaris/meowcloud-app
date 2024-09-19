@@ -5,17 +5,27 @@ import { http } from '@/utils/http'
  */
 export const getTeamList = () => {
   return http({
-    url: `/team`,
+    url: `/meowcloud/api/team`,
     method: 'GET',
   })
 }
 /**
  * 团队空间相册信息
- * 相册类型。0为个人相册，1为团队相册
  */
-export const getAlbumInfo = (albumType) => {
+export const getAlbumInfo = (params) => {
+  const { id, pageNum, pageSize } = params
   return http({
-    url: `/album/basic/${albumType}`,
+    url: `/meowcloud/api/album/basic/team/${id}/${pageNum}/${pageSize}`,
     method: 'GET',
+  })
+}
+/**
+ * 创建相册
+ */
+export const createAlbumApi = (params) => {
+  return http({
+    url: `/meowcloud/api/album`,
+    method: 'POST',
+    data: params,
   })
 }

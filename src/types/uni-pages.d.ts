@@ -16,8 +16,7 @@ interface NavigateToOptions {
        "/pages/login/index" |
        "/pages/meow-planet/index" |
        "/pages/mine/edit-profile" |
-       "/pages/mine/index" |
-       "/pages-sub/demo/index";
+       "/pages/mine/index";
 }
 interface RedirectToOptions extends NavigateToOptions {}
 

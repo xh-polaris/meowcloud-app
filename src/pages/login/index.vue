@@ -62,7 +62,12 @@ const goLogin = async (code) => {
     verifyCode: code,
     authType: 'wechat',
     authId: WX_APPID,
+    appId: 12,
   })
+  // 测试数据，接口调通之后重新处理
+  if (res.userId) {
+    uni.setStorageSync('userinfo', res)
+  }
   // uni.hideLoading()
   // uni.reLaunch({
   //   url: '/pages/album/index',

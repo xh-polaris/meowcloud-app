@@ -3,7 +3,7 @@ import { http } from '@/utils/http'
 interface LoginParams {
   authType: 'email' | 'phone' | 'wechat'
   authId: string
-  appId?: string
+  appId?: number
   verifyCode: string
 }
 /**
@@ -11,7 +11,7 @@ interface LoginParams {
  */
 export const getLogin = (params: LoginParams) => {
   return http({
-    url: `/auth/sign_in`,
+    url: `/meowchat/api/auth/sign_in`,
     method: 'POST',
     // query: params,
     data: params,
