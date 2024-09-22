@@ -33,6 +33,12 @@ import catImg from '@/static/images/cat.jpg'
 import { getTeamList, getAlbumInfo, createAlbumApi } from '@/service/album/album'
 
 const teamDefName = ref('')
+const teamDefValue = ref('')
+
+const pageTeam = reactive({
+  pageNum: 1,
+  pageSize: 200,
+})
 const page = reactive({
   pageNum: 1,
   pageSize: 200,
@@ -46,20 +52,23 @@ const comData = [
   { url: catImg, badge: 200, content: '回收站' },
   { url: catImg, badge: 200, content: '其他功能' },
 ]
-console.log('teamist', teamList.value)
 const getTeamListFn = async () => {
-  const res = await getTeamList()
-  teamList.value = res || []
-  teamDefName.value = res[0]?.name
+  const res = await getTeamList(pageTeam)
+  teamList.value = res.payload || []
+  console.log('teamist', res.payload, teamList.value)
+
+  teamDefName.value = res.payload[0]?.name
+  teamDefValue.value = res.payload[0]?.id
 
   getAlbumInfoFn()
 }
-const teamChange = (val) => {
-  teamDefName.value = val
+const teamChange = (data) => {
+  teamDefName.value = data.value
+  teamDefValue.value = data.opt.name
 }
 
 const getAlbumInfoFn = async () => {
-  const res = await getAlbumInfo({ ...page, id: unref(teamDefName) })
+  const res = await getAlbumInfo({ ...page, id: unref(teamDefValue) })
   albumInfo.value = res || []
   albumInfo.value.push({
     name: '新建相册',

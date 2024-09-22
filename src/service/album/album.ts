@@ -3,9 +3,9 @@ import { http } from '@/utils/http'
 /**
  * 团队列表
  */
-export const getTeamList = () => {
+export const getTeamList = (page) => {
   return http({
-    url: `/meowcloud/api/team`,
+    url: `/meowcloud/api/team/${page.pageNum}/${page.pageSize}`,
     method: 'GET',
   })
 }
