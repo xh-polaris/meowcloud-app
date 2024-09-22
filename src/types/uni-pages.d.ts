@@ -7,6 +7,8 @@ interface NavigateToOptions {
   url: "/pages/album/index" |
        "/pages/about/index" |
        "/pages/album/album-comments" |
+       "/pages/album/album-detail" |
+       "/pages/album/all" |
        "/pages/album/edit-album" |
        "/pages/album/photo-details" |
        "/pages/album/team-space" |
