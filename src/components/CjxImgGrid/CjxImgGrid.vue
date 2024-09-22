@@ -43,7 +43,7 @@ const props = defineProps({
 const emits = defineEmits(['create', 'toAblum'])
 
 const albumClick = () => {
-  emits(props.info.id === -1 ? 'create' : 'toAblum', props.info.id)
+  emits(props.info.id === '-1' ? 'create' : 'toAblum', props.info.id)
 }
 </script>
 
