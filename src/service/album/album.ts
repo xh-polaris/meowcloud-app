@@ -29,3 +29,23 @@ export const createAlbumApi = (params) => {
     data: params,
   })
 }
+/**
+ * 相册详情
+ */
+export const getAlbumDetails = (params) => {
+  const { id } = params
+  return http({
+    url: `/meowcloud/api/album/${id}`,
+    method: 'GET',
+  })
+}
+/**
+ * 获取修改相册页的信息
+ */
+export const getAlbumInfoById = (params) => {
+  const { id } = params
+  return http({
+    url: `/meowcloud/api/album/info/${id}`,
+    method: 'GET',
+  })
+}
