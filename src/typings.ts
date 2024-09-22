@@ -4,6 +4,7 @@ type IResData<T> = {
   code: number
   msg: string
   data: T
+  payload: T
 }
 
 // uni.uploadFile文件上传参数

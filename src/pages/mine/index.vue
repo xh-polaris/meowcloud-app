@@ -10,7 +10,7 @@
   <view class="px-4">
     <view class="user-info rounded-2 mt-5 pl-4 pr-2.5 pb-2">
       <view class="flex items-center">
-        <image :src="catImg" mode="aspectFill" class="w-18 h-18 rounded-1 mt--4.5" />
+        <image :src="userInfo.avatar" mode="aspectFill" class="w-18 h-18 rounded-1 mt--4.5" />
         <view class="ml-2">
           <view class="text-3.75 font-500">用户昵称</view>
           <view class="text-2.5 text-#878787 mt-1">猫猫云ID</view>
@@ -20,15 +20,15 @@
       <view class="flex items-center">
         <view class="mr-5">
           <view class="text-3 text-#878787 text-center">我的相册</view>
-          <view class="text-4.25 text-center mt-1">12</view>
+          <view class="text-4.25 text-center mt-1">{{ userInfo.createAlbums }}</view>
         </view>
         <view class="mr-5">
           <view class="text-3 text-#878787 text-center">关注相册</view>
-          <view class="text-4.25 text-center mt-1">12</view>
+          <view class="text-4.25 text-center mt-1">{{ userInfo.followedAlbums }}</view>
         </view>
         <view class="mr-5">
           <view class="text-3 text-#878787 text-center">我的团队</view>
-          <view class="text-4.25 text-center mt-1">12</view>
+          <view class="text-4.25 text-center mt-1">{{ userInfo.teams }}</view>
         </view>
         <view
           class="absolute bottom-2 right-4 flex items-center bg-#EDEDED rounded-2 px-2 py-1"
@@ -47,8 +47,10 @@
     <view class="flex justify-between items-center">
       <view class="flex justify-between items-center rounded-2 p-2.5 h-20 bg-white w-60/100 mr-2">
         <view class="mr-2">
-          <view class="text-3.75">已使用1.2G</view>
-          <view class="text-2.5 text-#878787 my-2">共4534张猫片 12个相册</view>
+          <view class="text-3.75">已使用{{ totalUedMemory }}</view>
+          <view class="text-2.5 text-#878787 my-2">
+            共{{ userInfo.memory.photoTotal }}张猫片{{ userInfo.memory.albumTotal }}个相册
+          </view>
           <view class="rounded-2 w-20 bg-#D9D9D9 py-1 h-4.5"></view>
         </view>
         <cjx-circle-progress
@@ -57,7 +59,7 @@
           gradualColor="#64ADFF"
           :boxWidth="70"
           :boxHeight="70"
-          :percent="25"
+          :percent="userInfo.memory.rate"
         ></cjx-circle-progress>
       </view>
       <view class="rounded-2 p-2.5 bg-white h-20 w-30/100">
@@ -82,7 +84,7 @@
           bgCanvasId="bgCanvasId2"
           :boxWidth="70"
           :boxHeight="70"
-          :percent="100"
+          :percent="userInfo.points"
         ></cjx-circle-progress>
       </view>
       <view class="flex flex-wrap items-center mt-2">
@@ -106,7 +108,7 @@
           <image :src="catImg" mode="aspectFill" class="img-main" />
           <view class="text-2.5 text-[#181818]">打印52张猫片</view>
           <view class="flex items-center text-[#055EC6]">
-            <text class="text-3.25">999</text>
+            <text class="text-3.25">{{ userInfo.points }}</text>
             <text class="text-2 ml-1">积分</text>
           </view>
         </view>
@@ -153,12 +155,35 @@
 import catImg from '@/static/images/cat.jpg'
 import markImg from '@/static/images/mark.jpg'
 import CjxCircleProgress from './components/CjxCircleProgress.vue'
+import { getUserCenter } from '@/service/user/user'
 
 // 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
 
+const totalUedMemory = computed(() => {
+  const usedMemory = userInfo.value.memory.usedMemory
+  if (usedMemory >= 1024 * 1024) return ((usedMemory / 1024) * 1024).toFixed(2) + 'MB'
+  if (usedMemory >= 1024 * 1024 * 1024) return ((usedMemory / 1024) * 1024 * 1024).toFixed(2) + 'GB'
+  return usedMemory + 'KB'
+})
 const author = ref('')
 const description = ref()
+const userInfo = ref({
+  id: '',
+  username: '',
+  signature: '',
+  avatar: '',
+  createAlbums: 0,
+  followedAlbums: 0,
+  teams: 0,
+  points: 0,
+  memory: {
+    usedMemory: 0,
+    photoTotal: 0,
+    albumTotal: 0,
+    rate: 0,
+  },
+})
 
 onLoad(() => {
   console.log(author)
@@ -167,6 +192,15 @@ onLoad(() => {
 const jump2Edit = () => {
   uni.navigateTo({ url: '/pages/mine/edit-profile' })
 }
+
+const getData = async () => {
+  const res = await getUserCenter()
+  if (res.code === 0) {
+    userInfo.value = res.payload
+  }
+}
+
+getData()
 </script>
 
 <style lang="scss" scoped>
@@ -181,8 +215,8 @@ const jump2Edit = () => {
   background-image: linear-gradient(to right, #44aaf4, #0e6bf7);
 }
 .img-main {
-  width: 116rpx;
-  height: 116rpx;
+  width: 110rpx;
+  height: 110rpx;
   margin-right: 30rpx;
   margin-bottom: 10rpx;
   border-radius: 8rpx;

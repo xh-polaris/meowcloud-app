@@ -11,9 +11,19 @@ interface LoginParams {
  */
 export const getLogin = (params: LoginParams) => {
   return http({
-    url: `/meowchat/api/auth/sign_in`,
+    url: `/meowchat/auth/sign_in`,
     method: 'POST',
     // query: params,
     data: params,
+  })
+}
+
+/**
+ * 个人中心页
+ */
+export const getUserCenter = () => {
+  return http({
+    url: `/meowcloud/api/user`,
+    method: 'GET',
   })
 }
