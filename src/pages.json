@@ -72,6 +72,10 @@
       "type": "page"
     },
     {
+      "path": "pages/album/all",
+      "type": "page"
+    },
+    {
       "path": "pages/album/edit-album",
       "type": "page"
     },
@@ -129,13 +133,6 @@
       "type": "page",
       "style": {
         "navigationBarTitleText": "我的"
-      }
-    },
-    {
-      "path": "pages/album/all",
-      "style": {
-        "navigationBarTitleText": "全部",
-        "enablePullDownRefresh": false
       }
     }
   ],

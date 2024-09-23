@@ -16,7 +16,7 @@ import PhotoDescriptions from '@/components/PhotoDescriptions/PhotoDescriptions.
 import LikesAndCommentsCount from '@/components/LikesAndCommentsCount/LikesAndCommentsCount.vue'
 import BarrageComments from '@/components/BarrageComments/BarrageComments.vue'
 
-const photoPath = ref('/static/images/catBody.png')
+const photoPath = ref('/static/images/catBody.jpg')
 const commentsList = ['我是弹幕评论', '我是弹幕评论', '我是弹幕评论']
 
 // darkMode
