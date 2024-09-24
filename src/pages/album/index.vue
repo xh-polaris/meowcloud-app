@@ -35,7 +35,6 @@ const albumChange = (key) => {
   console.log('当前相册', key)
 }
 
-// 测试数据---正式放开
 if (!uni.getStorageSync('token')) {
   uni.redirectTo({ url: '/pages/login/index' })
 }

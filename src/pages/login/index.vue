@@ -64,14 +64,18 @@ const goLogin = async (code) => {
     authId: WX_APPID,
     appId: 12,
   })
-  // 测试数据，接口调通之后重新处理
   if (res.userId) {
+    uni.setStorageSync('token', res.accessToken)
     uni.setStorageSync('userinfo', res)
+    uni.reLaunch({
+      url: '/pages/album/index',
+    })
+    return
   }
-  // uni.hideLoading()
-  // uni.reLaunch({
-  //   url: '/pages/album/index',
-  // })
+  uni.showToast({
+    title: '登录异常',
+    icon: 'none',
+  })
 }
 const wxLogin = () => {
   if (!isAgree.value) {
